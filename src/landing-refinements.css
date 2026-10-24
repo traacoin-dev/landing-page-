@@ -1,0 +1,64 @@
+/* Clean refinements for digital marketing conversions, mobile responsiveness, and clean interactive states */
+html {
+  scroll-padding-top: 1rem;
+  scroll-behavior: smooth;
+}
+
+body,
+#root {
+  min-width: 320px;
+  max-width: 100%;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+#free-demo,
+#courses,
+#batches,
+#study-store,
+#about,
+#gallery,
+#results,
+#branches {
+  scroll-margin-top: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  /* Ensure form inputs have minimum height and no zoom */
+  input,
+  select,
+  textarea {
+    min-height: 46px;
+  }
+
+  button,
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

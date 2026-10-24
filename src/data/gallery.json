@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "url": "https://www.kuttystudycircle.in/static/uploads/gallery/gallery_ca24f02ed2cbf8d5_IMG-20260707-WA0119.jpg.jpeg",
+    "title": "Interactive Smart Classroom Teaching",
+    "subtitle": "RK Master explaining core conceptual pedagogy and speed calculation methods directly to students.",
+    "tag": "Smart Classroom",
+    "location": "Tirupati & Chittoor Centers",
+    "category": "classroom"
+  },
+  {
+    "id": 2,
+    "url": "https://www.kuttystudycircle.in/static/uploads/gallery/gallery_9ce4278ba1117288_IMG-20260707-WA0162.jpg.jpeg",
+    "title": "Annual State Aspirants Orientation & Seminar",
+    "subtitle": "Over 1,000+ government job aspirants gathered for comprehensive strategy and exam mindset preparation.",
+    "tag": "Grand Auditorium",
+    "location": "Chittoor Central Auditorium",
+    "category": "seminar"
+  },
+  {
+    "id": 3,
+    "url": "https://www.kuttystudycircle.in/static/uploads/gallery/gallery_9ae5e328e32d202d_IMG-20260707-WA0122.jpg.jpeg",
+    "title": "Aspirants Intensive Daily Practice Hall",
+    "subtitle": "Strict exam simulation environment with timed tests, OMR sheets, and instant evaluation metrics.",
+    "tag": "Hall Simulation",
+    "location": "Rayalaseema Exam Halls",
+    "category": "hall"
+  },
+  {
+    "id": 4,
+    "url": "https://www.kuttystudycircle.in/static/uploads/gallery/gallery_2f41ec2048b38af0_IMG-20260707-WA0146.jpg.jpeg",
+    "title": "Achievers Felicitation & Officer Honors",
+    "subtitle": "Proudly honoring top rankers who secured prestigious SGT, School Assistant, SI, and Banking appointments.",
+    "tag": "Hall of Fame",
+    "location": "State Ranker Meet",
+    "category": "seminar"
+  },
+  {
+    "id": 5,
+    "url": "https://www.kuttystudycircle.in/static/uploads/gallery/gallery_5f130771007a0147_IMG-20260707-WA0150.jpg.jpeg",
+    "title": "Special Workshop & Mentoring Masterclass",
+    "subtitle": "State rank holders and senior educators mentoring students on subject precision and time optimization.",
+    "tag": "Masterclass",
+    "location": "Tirupati Seminar Hall",
+    "category": "classroom"
+  },
+  {
+    "id": 6,
+    "url": "https://www.kuttystudycircle.in/static/uploads/gallery/gallery_08fcb85c0d1afbf6_IMG-20260707-WA0151.jpg.jpeg",
+    "title": "Dedicated Research Library & Bit Bank Zone",
+    "subtitle": "Peaceful environment equipped with 10+ years of previous solved papers and bilingual reference material.",
+    "tag": "Study Zone",
+    "location": "Library Wing",
+    "category": "hall"
+  }
+]

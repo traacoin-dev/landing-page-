@@ -2,21 +2,25 @@
 
 @layer base {
   :root {
-    --primary-blue: #003366;
-    --primary-dark: #002244;
-    --primary-navy: #001730;
-    --accent-yellow: #FFD700;
-    --accent-amber: #F5A623;
-    --accent-coral: #FF7A45;
-    --text-dark: #1A1A2E;
-    --text-light: #64748B;
-    --bg-light: #F8F9FA;
-    --card-border: #E8ECF0;
+    --primary-blue: #0B356D;
+    --primary-dark: #072247;
+    --primary-navy: #04142B;
+    --accent-amber: #F59E0B;
+    --accent-orange: #EA580C;
+    --accent-gold: #FBBF24;
+    --accent-green: #22C55E;
+    --accent-green-dark: #16A34A;
+    --cream-bg: #FFF9EE;
+    --cream-border: #FDE68A;
+    --text-dark: #0F172A;
+    --text-muted: #64748B;
+    --bg-slate: #F8FAFC;
+    --card-border: #E2E8F0;
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', 'Noto Sans Telugu', 'Open Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Telugu', system-ui, -apple-system, sans-serif;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -27,6 +31,7 @@
     color: var(--text-dark);
     background-color: #ffffff;
     width: 100%;
+    min-width: 320px;
   }
 
   #root {
@@ -41,10 +46,10 @@
 }
 
 /* ==========================================================================
-   MOBILE UTILITIES, TOUCH SNAP & SCROLLBAR HIDING
+   MOBILE RESPONSIVENESS & TOUCH UTILITIES (99% Mobile First)
    ========================================================================== */
 
-/* Hide scrollbars for horizontal snap sliders */
+/* Hide scrollbars for horizontal snap sliders while keeping smooth touch scroll */
 .scrollbar-none::-webkit-scrollbar,
 .no-scrollbar::-webkit-scrollbar {
   display: none !important;
@@ -58,7 +63,7 @@
   scrollbar-width: none !important;
 }
 
-/* Smooth Touch Snap Scrolling */
+/* Smooth Touch Snap Scrolling for horizontal carousels on mobile */
 .touch-snap-x {
   display: flex;
   overflow-x: auto;
@@ -72,29 +77,24 @@
   flex-shrink: 0;
 }
 
-/* Mobile swipe pulse indicator animation */
-@keyframes swipePulse {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateX(6px);
-    opacity: 1;
+/* Mobile tap feedback */
+button, a {
+  touch-action: manipulation;
+}
+
+/* Prevent iOS form input zoom */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
   }
 }
 
-.animate-swipe-pulse {
-  animation: swipePulse 1.5s ease-in-out infinite;
-}
-
-/* Force AOS animations to remain smooth and visible on mobile screens */
+/* AOS mobile safety: avoid horizontal overflow from translation animations */
 [data-aos] {
   pointer-events: auto !important;
 }
 
 @media (max-width: 768px) {
-  /* Prevent horizontal scroll overflow & left-side text cutoff caused by AOS translations */
   [data-aos="fade-left"],
   [data-aos="fade-right"] {
     transform: none !important;
@@ -105,488 +105,105 @@
 }
 
 /* ==========================================================================
-   ORIGINAL KUTTY STUDY CIRCLE SIGNATURE SHAPES & CLIPS
-   ========================================================================== */
-
-/* Hero bottom chevron cut ribbon */
-.hero-banner-ribbon {
-  clip-path: polygon(0 40%, 50% 0, 50% 0, 100% 40%, 100% 100%, 0 100%);
-}
-
-@media (max-width: 768px) {
-  .hero-banner-ribbon {
-    clip-path: polygon(0 25%, 50% 0, 50% 0, 100% 25%, 100% 100%, 0 100%);
-  }
-}
-
-/* Authentic polygonal photo crop for student/founder spotlight */
-.photo-polygon {
-  clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
-}
-
-@media (max-width: 768px) {
-  .photo-polygon {
-    clip-path: none;
-    border-radius: 1rem;
-  }
-}
-
-/* ==========================================================================
    ANIMATIONS & KEYFRAMES
    ========================================================================== */
 
-/* Continuous horizontal ticker animation */
+/* Continuous ticker marquee */
 @keyframes tickerScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-ticker {
   display: flex;
   width: max-content;
-  animation: tickerScroll 45s linear infinite;
+  animation: tickerScroll 40s linear infinite;
 }
 
 .animate-ticker:hover {
   animation-play-state: paused;
 }
 
-/* Vertical marquee scroll for Exams & Notifications */
-@keyframes scrollVertical {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-
-.animate-vertical-carousel {
-  animation: scrollVertical 18s linear infinite;
-}
-
-.animate-vertical-carousel:hover {
-  animation-play-state: paused;
-}
-
-/* Pulsing badge for new updates */
-@keyframes pulseBadge {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.65;
-    transform: scale(0.97);
-  }
-}
-
-.animate-pulse-badge {
-  animation: pulseBadge 1.8s ease-in-out infinite;
-}
-
-/* Ringing Bell Keyframe */
+/* Ringing Bell Animation */
 @keyframes bellRing {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(15deg); }
-  50% { transform: rotate(-15deg); }
-  75% { transform: rotate(10deg); }
+  20% { transform: rotate(14deg); }
+  40% { transform: rotate(-14deg); }
+  60% { transform: rotate(8deg); }
+  80% { transform: rotate(-8deg); }
 }
 
 .animate-bell-ring {
-  animation: bellRing 1.4s ease infinite;
+  animation: bellRing 1.8s ease infinite;
   transform-origin: top center;
 }
 
-/* ==========================================================================
-   GALLERY — CINEMATIC FULL-WIDTH CAROUSEL
-   ========================================================================== */
-
-/* Outer wrapper – clips the track */
-.gallery-carousel-wrap {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 520px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,215,0,0.08);
+/* Subtle float animation */
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Sliding track – all slides in a row */
-.gallery-carousel-track {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+.animate-soft-float {
+  animation: softFloat 3s ease-in-out infinite;
 }
 
-/* Each slide takes 100% of the viewport */
-.gallery-carousel-slide {
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+/* Pulse badge */
+@keyframes pulseBadge {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(0.96); }
 }
 
-/* Photo – subtle scale-in when slide is active */
-.gallery-carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.07);
-  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
-  display: block;
+.animate-pulse-badge {
+  animation: pulseBadge 2s ease-in-out infinite;
 }
 
-.gallery-carousel-img--active {
-  transform: scale(1);
-}
-
-/* Rich gradient overlay */
-.gallery-carousel-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 5, 30, 0.75) 0%,
-    rgba(0, 10, 40, 0.45) 40%,
-    rgba(0, 0, 0, 0.10) 70%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
-}
-
-/* Content block – slides up from the bottom */
-.gallery-carousel-content {
-  position: absolute;
-  bottom: 60px;
-  left: 44px;
-  right: 44px;
-  z-index: 4;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease 0.2s, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
-  max-width: 580px;
-}
-
-.gallery-carousel-content--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.gallery-carousel-tag {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #003366;
-  background: #FFD700;
-  padding: 4px 12px;
-  border-radius: 99px;
-  margin-bottom: 10px;
-}
-
-.gallery-carousel-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.2;
-  margin: 0 0 8px;
-  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.6);
-}
-
-.gallery-carousel-subtitle {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.5;
-  margin: 0 0 18px;
-}
-
-.gallery-carousel-enlarge-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 20px;
-  background: rgba(255, 215, 0, 0.92);
-  color: #003366;
-  font-size: 0.78rem;
-  font-weight: 800;
-  border: none;
-  border-radius: 99px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  transition: background 0.25s ease, transform 0.2s ease;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-}
-
-.gallery-carousel-enlarge-btn:hover {
-  background: #fff;
-  transform: scale(1.05);
-}
-
-/* Slide counter — top right */
-.gallery-carousel-counter {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  z-index: 5;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  padding: 5px 12px;
-  border-radius: 99px;
-  letter-spacing: 0.08em;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Navigation arrows */
-.gallery-carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.gallery-carousel-arrow:hover {
-  background: rgba(255, 215, 0, 0.9);
-  color: #003366;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 8px 28px rgba(255, 215, 0, 0.35);
-}
-
-.gallery-carousel-arrow--left { left: 18px; }
-.gallery-carousel-arrow--right { right: 18px; }
-
-/* Dot indicators */
-.gallery-carousel-dots {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 6;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.gallery-carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
-}
-
-.gallery-carousel-dot--active {
-  width: 28px;
-  border-radius: 99px;
-  background: #FFD700;
-  transform: scale(1);
-}
-
-/* Progress bar at the very bottom of the carousel */
-.gallery-carousel-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: 6;
-}
-
-@keyframes progressSlide {
-  from { width: 0%; }
-  to   { width: 100%; }
-}
-
-.gallery-carousel-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #FFD700, #ffcf00);
-  animation: progressSlide 4.5s linear forwards;
-  border-radius: 0 2px 2px 0;
-}
-
-/* ── Thumbnail strip ── */
-.gallery-thumb-strip {
-  display: flex;
-  gap: 10px;
-  margin-top: 14px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding-bottom: 6px;
-}
-
-.gallery-thumb {
-  position: relative;
-  flex: 0 0 calc((100% - 50px) / 6);
-  min-width: 80px;
-  height: 62px;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  background: #111;
-}
-
-.gallery-thumb:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-.gallery-thumb--active {
-  border-color: #FFD700;
-  box-shadow: 0 0 0 3px rgba(255,215,0,0.3), 0 8px 20px rgba(0,0,0,0.4);
-  transform: translateY(-3px);
-}
-
-.gallery-thumb-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.gallery-thumb:hover .gallery-thumb-img {
-  transform: scale(1.1);
-}
-
-.gallery-thumb-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 20, 60, 0.35);
-  transition: background 0.3s ease;
-}
-
-.gallery-thumb--active .gallery-thumb-overlay {
-  background: rgba(0, 20, 60, 0.1);
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .gallery-carousel-wrap {
-    height: 360px;
-    border-radius: 14px;
-  }
-
-  .gallery-carousel-content {
-    bottom: 50px;
-    left: 20px;
-    right: 20px;
-  }
-
-  .gallery-carousel-title {
-    font-size: 1.2rem;
-  }
-
-  .gallery-carousel-arrow {
-    width: 40px;
-    height: 40px;
-  }
-
-  .gallery-thumb {
-    min-width: 58px;
-    height: 48px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-carousel-wrap {
-    height: 320px;
-    border-radius: 12px;
-  }
-
-  .gallery-carousel-title {
-    font-size: 1.1rem;
-  }
-
-  .gallery-carousel-subtitle {
-    font-size: 0.75rem;
-    line-height: 1.35;
-    opacity: 0.95;
-    margin-bottom: 10px;
-    display: block !important;
-  }
-}
-
-/* ==========================================================================
-   PROGRAMS & HEADINGS ENHANCEMENTS
-   ========================================================================== */
-.gold-bar-accent {
-  position: relative;
-}
-
-.gold-bar-accent::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 44px;
-  height: 3px;
-  background: var(--accent-yellow);
-  border-radius: 2px;
-}
-
-/* Custom scrollbars for clean vertical panes */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 51, 102, 0.08);
-  border-radius: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--primary-blue);
-  border-radius: 4px;
-}
-
-.custom-scrollbar-gold::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar-gold::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-.custom-scrollbar-gold::-webkit-scrollbar-thumb {
-  background: var(--accent-yellow);
-  border-radius: 4px;
-}
-
-/* Smooth fade in animation */
+/* Modal fade-in */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
+  from { opacity: 0; transform: scale(0.97); }
   to { opacity: 1; transform: scale(1); }
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   PREMIUM CINEMATIC GALLERY ANIMATIONS
+   ========================================================================== */
+
+/* Ken Burns subtle zoom on active slide */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurns 18s ease-in-out infinite alternate;
+}
+
+/* Gallery auto-progress bar */
+@keyframes galleryProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.animate-gallery-progress {
+  animation: galleryProgress 5s linear forwards;
+}
+
+/* Custom scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
 }

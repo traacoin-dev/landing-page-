@@ -1,0 +1,98 @@
+{
+  "currentRunning": [
+    {
+      "id": "cr-dsc",
+      "category": "DSC Training",
+      "title": "AP DSC 2026 SGT Regular Classroom",
+      "desc": "Mathematics, Methodology & Psychology in full swing with daily evaluation.",
+      "timing": "9:00 AM - 1:00 PM",
+      "mode": "Offline Classroom",
+      "status": "Currently Running",
+      "location": "Chittoor & Tirupati",
+      "progressWeek": 5,
+      "totalWeeks": 14
+    },
+    {
+      "id": "cr-tet",
+      "category": "TET",
+      "title": "AP TET Paper 1 & 2 Pedagogy Regular",
+      "desc": "Child development, pedagogy masterclasses, and Telugu grammar practice.",
+      "timing": "9:30 AM - 1:30 PM",
+      "mode": "Offline & Live Stream",
+      "status": "Currently Running",
+      "location": "All 3 Branches",
+      "progressWeek": 4,
+      "totalWeeks": 12
+    },
+    {
+      "id": "cr-si",
+      "category": "Police SI",
+      "title": "AP Police SI Intensive Written + Physical",
+      "desc": "Speed math calculation tricks, analytical reasoning and daily fitness sessions.",
+      "timing": "5:30 PM - 8:30 PM",
+      "mode": "Classroom & Ground",
+      "status": "Currently Running",
+      "location": "Tirupati Center",
+      "progressWeek": 6,
+      "totalWeeks": 16
+    },
+    {
+      "id": "cr-bank",
+      "category": "Banking & SSC",
+      "title": "Banking & Railway Speed Arithmetic",
+      "desc": "Shortcut quantitative techniques and general awareness revision modules.",
+      "timing": "10:00 AM - 1:30 PM",
+      "mode": "Offline Classroom",
+      "status": "Currently Running",
+      "location": "Chittoor Center",
+      "progressWeek": 3,
+      "totalWeeks": 12
+    }
+  ],
+  "upcoming15DaysDSC": [
+    {
+      "id": "up-dsc-sgt",
+      "category": "DSC Special",
+      "title": "AP DSC 2026 SGT Fast-Track Batch",
+      "desc": "Starts in next 5 days. Full syllabus coverage for SGT aspirants with complete study materials.",
+      "timing": "Starts in 5 Days · 9:00 AM - 1:00 PM",
+      "mode": "Classroom (Tirupati & Chittoor)",
+      "seats": "Only 6 Seats Left",
+      "status": "Starts in 5 Days",
+      "courseSelection": "AP DSC 2026 (SGT Batch)"
+    },
+    {
+      "id": "up-dsc-sa-maths",
+      "category": "DSC Special",
+      "title": "AP DSC 2026 SA Maths & Physical Science",
+      "desc": "Starts in next 8 days. In-depth geometry by RK Master, arithmetic, and methodology.",
+      "timing": "Starts in 8 Days · 9:30 AM - 4:30 PM",
+      "mode": "Intensive Classroom + Hall Tests",
+      "seats": "Registration Closing Soon",
+      "status": "Starts in 8 Days",
+      "courseSelection": "AP DSC 2026 (School Assistant)"
+    },
+    {
+      "id": "up-dsc-sa-social",
+      "category": "DSC Special",
+      "title": "AP DSC 2026 SA Social Studies & Telugu",
+      "desc": "Starts in next 12 days. History, geography, civics, and pedagogy with model test series.",
+      "timing": "Starts in 12 Days · 2:00 PM - 6:00 PM",
+      "mode": "Classroom (All 3 Branches)",
+      "seats": "8 Seats Allocated",
+      "status": "Starts in 12 Days",
+      "courseSelection": "AP DSC 2026 (School Assistant)"
+    },
+    {
+      "id": "up-tet-dsc-combo",
+      "category": "DSC Foundation",
+      "title": "AP TET + DSC 2026 Integrated Foundation",
+      "desc": "Starts in next 15 days. Complete 2-in-1 coaching covering both TET qualifying and DSC rank preparation.",
+      "timing": "Starts in 15 Days · 9:00 AM - 1:30 PM",
+      "mode": "Classroom & Model Paper Sets",
+      "seats": "Early Bird Enrolment Open",
+      "status": "Starts in 15 Days",
+      "courseSelection": "AP DSC 2026 (SGT Batch)"
+    }
+  ]
+}

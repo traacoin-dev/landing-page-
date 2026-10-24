@@ -1,0 +1,56 @@
+[
+  {
+    "id": "dsc-sgt",
+    "tag": "DSC",
+    "title": "AP DSC 2026 (SGT Batch)",
+    "badge": "Next 15 Days Batch",
+    "summary": "Dedicated intensive coaching for AP DSC 2026 SGT. Special focus on Maths, Methodology, and Psychology.",
+    "seats": "Batch Filling Fast",
+    "timing": "Daily 9:00 AM - 1:00 PM"
+  },
+  {
+    "id": "dsc-sa",
+    "tag": "DSC",
+    "title": "AP DSC 2026 (School Assistant)",
+    "badge": "Maths · Science · Social",
+    "summary": "Complete subject papers, bilingual methodology practice, and daily exam hall simulations.",
+    "seats": "Seats Active",
+    "timing": "Morning & Evening Slots"
+  },
+  {
+    "id": "tet",
+    "tag": "TET",
+    "title": "Teacher Eligibility Test (TET)",
+    "badge": "Paper 1 & Paper 2",
+    "summary": "Complete syllabus coverage for Paper 1 (SGT) and Paper 2 (School Assistant) with pedagogy masterclasses.",
+    "seats": "Few Seats Left",
+    "timing": "Daily 9:00 AM - 1:00 PM"
+  },
+  {
+    "id": "si",
+    "tag": "SI",
+    "title": "SI Programs",
+    "badge": "Written + Ground",
+    "summary": "Comprehensive coaching for AP Police SI prelims, mains, arithmetic shortcuts plus outdoor physical training.",
+    "seats": "Batch Active",
+    "timing": "5:30 AM Ground · 9:30 AM Class"
+  },
+  {
+    "id": "constable",
+    "tag": "CONSTABLE",
+    "title": "Constable Programs",
+    "badge": "Intensive Drills",
+    "summary": "Conceptual teaching from basics, daily model tests, and specialized physical event coaching.",
+    "seats": "Open for Inter / Degree",
+    "timing": "Daily Morning Batches"
+  },
+  {
+    "id": "groups",
+    "tag": "GROUPS",
+    "title": "Banking, SSC & Railway",
+    "badge": "Central & State",
+    "summary": "Speed math tricks, analytical reasoning, and English grammar modules for RRB NTPC, Group D, and Bank exams.",
+    "seats": "New Batch Monday",
+    "timing": "Flexible Timings"
+  }
+]
