@@ -21,6 +21,7 @@ video {
 }
 
 #free-demo,
+#free-demo-form,
 #courses,
 #batches,
 #study-store,
@@ -32,19 +33,36 @@ video {
 }
 
 @media (max-width: 767px) {
-  /* Ensure form inputs have minimum height and no zoom */
-  input,
+  /* Minimum touch height for text inputs, without stretching checkboxes/radios */
+  input:not([type="checkbox"]):not([type="radio"]),
   select,
   textarea {
     min-height: 46px;
   }
 
-  button,
-  a {
+  /* Touch target for buttons only.
+     IMPORTANT: do NOT set `display` here. Unlayered CSS beats Tailwind v4's
+     layered utilities, so `display: inline-flex` was overriding `hidden`
+     and made the desktop WhatsApp pill show on mobile. */
+  button {
     min-height: 44px;
+  }
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP (desktop only)
+   Add the class "whatsapp-float-desktop" to the "WhatsApp Us" pill.
+   On phones the sticky bottom bar is used instead.
+   ========================================================================== */
+@media (max-width: 639px) {
+  .whatsapp-float-desktop {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .whatsapp-float-desktop {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 

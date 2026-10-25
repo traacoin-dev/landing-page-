@@ -3,6 +3,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import gsap from "gsap";
 import logoImg from "./assets/ksc-logo.png";
+import FormComponent from "./components/FormComponent.jsx";
+// import CourseComponent from "./components/CourseComponent.jsx"; // removed per new design
+// import BatchesComponent from "./components/BatchesComponent.jsx"; // removed per new design
 import {
   Phone,
   Mail,
@@ -39,6 +42,7 @@ import coursesData from "./data/courses.json";
 import batchesData from "./data/batches.json";
 import galleryData from "./data/gallery.json";
 import achieversData from "./data/achievers.json";
+import mapData from "./data/map.json";
 
 // Official Brand Assets
 const CLOUDINARY_LOGO = "https://res.cloudinary.com/oapmlpnu/image/upload/v1792001715/ksc-logo.png";
@@ -96,6 +100,7 @@ function YoutubeIcon({ className = "w-4 h-4" }) {
 export default function App() {
   const [activeBatchTab, setActiveBatchTab] = useState("upcoming15"); // default to upcoming 15 days DSC batches
   const [lightboxImg, setLightboxImg] = useState(null);
+  const [selectedMapBranch, setSelectedMapBranch] = useState("chittoor");
   const [showFloatingBar, setShowFloatingBar] = useState(false);
 
   // Premium Gallery State & Refs
@@ -346,15 +351,18 @@ export default function App() {
               <WhatsAppIcon className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">WhatsApp</span>
             </a>
-          </div>
-        </div>
+          
+        
 
         {/* TOP SCROLL BAR: Updated New Batch Starts for DSC Training (Requested by user) */}
+          </div>
+        </div>
         <div className="bg-[#0B356D] text-white py-2 px-3 border-t border-b border-blue-900/60 overflow-hidden">
           <div className="max-w-7xl mx-auto flex items-center">
             <div className="flex-shrink-0 flex items-center gap-1.5 bg-[#F59E0B] text-[#072247] font-extrabold text-[10px] sm:text-xs px-2.5 py-0.5 rounded shadow-xs mr-3 z-10 uppercase tracking-wide">
               <span className="w-1.5 h-1.5 rounded-full bg-[#072247] animate-ping" />
               <span>DSC TRAINING</span>
+            
             </div>
             <div className="flex-1 overflow-hidden relative">
               <div className="animate-ticker flex items-center gap-8 text-xs sm:text-sm font-medium text-slate-100 whitespace-nowrap">
@@ -365,6 +373,10 @@ export default function App() {
                 <span>🔥 <strong>Updated:</strong> New Batch Starts for DSC Training in Next 15 Days (SGT &amp; School Assistant) · Admissions Open across Chittoor, Tirupati &amp; Palamaner</span>
                 <span className="text-[#FBBF24]">★</span>
                 <span>📞 Call or WhatsApp: <strong>94918 44963</strong></span>
+              
+            
+          
+        
               </div>
             </div>
           </div>
@@ -389,8 +401,9 @@ export default function App() {
               <div className="gsap-hero-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/35 text-[#FBBF24] text-xs font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
                 <span>Next 15 Days Batch Starting for DSC</span>
-              </div>
+              
 
+              </div>
               <h1 className="gsap-hero-title font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.2] text-white">
                 Crack TET, DSC, SI &amp; Constable with the{" "}
                 <span className="text-[#FBBF24]">right guidance</span>
@@ -423,38 +436,54 @@ export default function App() {
                   <WhatsAppIcon className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </a>
-              </div>
+              
 
               {/* 4 Stats Cards */}
+              </div>
               <div className="grid grid-cols-4 gap-2 pt-3">
                 <div className="bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl border border-white/15 text-center">
-                  <div ref={statYearsRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">14+</div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Years</div>
-                </div>
+                  <div ref={statYearsRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">14+
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Years
+                
 
-                <div className="bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl border border-white/15 text-center">
-                  <div ref={statStudentsRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">2,000+</div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Selections</div>
+                  </div>
                 </div>
-
                 <div className="bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl border border-white/15 text-center">
-                  <div ref={statMentorsRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">80+</div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Mentors</div>
+                  <div ref={statStudentsRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">2,000+
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Selections
+                
+
+                  </div>
                 </div>
-
                 <div className="bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl border border-white/15 text-center">
-                  <div ref={statBranchesRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">3</div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Branches</div>
+                  <div ref={statMentorsRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">80+
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Mentors
+                
+
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-md p-2.5 sm:p-3.5 rounded-xl border border-white/15 text-center">
+                  <div ref={statBranchesRef} className="text-xl sm:text-2xl font-black text-[#FBBF24] font-serif">3
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-slate-300 mt-0.5 font-medium leading-tight">Branches
+                
+              
+            
+
+            {/* Right Column: Lead Form Card ("form leave like that only") */}
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Right Column: Lead Form Card ("form leave like that only") */}
             <div id="free-demo-form" className="gsap-hero-form lg:col-span-5">
               <div className="bg-white rounded-2xl p-5 sm:p-7 text-slate-900 shadow-2xl border border-slate-100 relative">
                 <div className="mb-4">
                   <div className="inline-block bg-amber-100 text-amber-900 font-extrabold text-[10px] uppercase px-2.5 py-0.5 rounded mb-1">
                     Free Trial Class
+                  
                   </div>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0B356D]">
                     Book your free demo class
@@ -462,9 +491,10 @@ export default function App() {
                   <p className="text-xs text-slate-500 mt-0.5">
                     Takes 30 seconds. No fee required. Fast callback.
                   </p>
-                </div>
+                
 
                 {/* Mode Selector (Offline vs Online) */}
+                </div>
                 <div className="mb-4">
                   <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wide mb-1.5">
                     Preferred Mode
@@ -494,10 +524,12 @@ export default function App() {
                       <Radio className="w-3.5 h-3.5" />
                       <span>Online (Virtual)</span>
                     </button>
-                  </div>
-                </div>
+                  
+                
 
                 {/* Form Fields (Retained exactly as requested) */}
+                  </div>
+                </div>
                 <form onSubmit={handleDemoSubmit} className="space-y-3.5">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
@@ -511,8 +543,9 @@ export default function App() {
                       onChange={(e) => setDemoForm({ ...demoForm, name: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0B356D] text-slate-900 bg-white"
                     />
-                  </div>
+                  
 
+                  </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                       Mobile Number
@@ -525,8 +558,9 @@ export default function App() {
                       onChange={(e) => setDemoForm({ ...demoForm, mobile: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#0B356D] text-slate-900 bg-white"
                     />
-                  </div>
+                  
 
+                  </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                       Target Course
@@ -543,7 +577,7 @@ export default function App() {
                       <option value="Banking & SSC">Banking &amp; SSC Comprehensive</option>
                       <option value="Railway (RRB NTPC, Group D)">Railway (RRB NTPC &amp; Group D)</option>
                     </select>
-                  </div>
+                  
 
                   {demoForm.mode === "offline" && (
                     <div>
@@ -559,9 +593,11 @@ export default function App() {
                         <option value="Chittoor">Chittoor (Head Office - Mittoor)</option>
                         <option value="Palamaner">Palamaner (Town Center)</option>
                       </select>
+                    
                     </div>
                   )}
 
+                  </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -578,6 +614,10 @@ export default function App() {
                     Our counsellor will call you back within 15 minutes, 8 AM to 8 PM.
                   </p>
                 </form>
+              
+            
+          
+        
               </div>
             </div>
           </div>
@@ -599,9 +639,10 @@ export default function App() {
             <p className="text-slate-600 text-sm sm:text-base mt-2">
               For 14 years, Kutty Study Circle has guided hardworking students in Rayalaseema into government careers through expert mentors and honest, result-focused preparation.
             </p>
-          </div>
+          
 
           {/* Founder Message Card */}
+          </div>
           <div
             data-aos="fade-up"
             data-aos-delay="100"
@@ -616,23 +657,31 @@ export default function App() {
                     className="w-full h-full object-cover"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
+                
                 </div>
                 <div className="absolute -bottom-2 -right-2 bg-[#0B356D] text-white p-1.5 rounded-full shadow">
                   <Award className="w-4 h-4 text-[#F59E0B]" />
+                
+              
+
                 </div>
               </div>
-
               <div className="flex-1 text-center sm:text-left">
                 <blockquote className="text-sm sm:text-base text-slate-800 italic leading-relaxed">
                   &ldquo;Over the past 14 years, our sole objective has been to take aspirants from humble backgrounds and equip them with the conceptual mastery, speed calculations, and mental confidence required to crack competitive government examinations.&rdquo;
                 </blockquote>
                 <div className="mt-3">
-                  <div className="font-serif font-bold text-lg text-[#0B356D]">RK Master</div>
-                  <div className="text-xs font-semibold text-amber-800">Founder &amp; Director, Kutty Study Circle</div>
+                  <div className="font-serif font-bold text-lg text-[#0B356D]">RK Master
+                  </div>
+                  <div className="text-xs font-semibold text-amber-800">Founder &amp; Director, Kutty Study Circle
+                
+              
+            
+
+                  </div>
                 </div>
               </div>
             </div>
-
             <a
               href={WHATSAPP_LINK}
               target="_blank"
@@ -642,48 +691,59 @@ export default function App() {
               <WhatsAppIcon className="w-3.5 h-3.5" />
               <span>Talk to Mentor</span>
             </a>
-          </div>
+          
 
           {/* 4 Pillars */}
+          </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 max-w-5xl mx-auto">
             <div data-aos="zoom-in" data-aos-delay="100" className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition">
               <div className="w-9 h-9 rounded-xl bg-[#0B356D] text-white font-bold flex items-center justify-center text-sm mb-3">
                 1
+              
               </div>
               <h4 className="font-serif font-bold text-base text-[#0B356D]">Expert Mentors</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 80+ experienced faculty, including RK Master. Ask doubts face-to-face in class.
               </p>
-            </div>
+            
 
+            </div>
             <div data-aos="zoom-in" data-aos-delay="150" className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition">
               <div className="w-9 h-9 rounded-xl bg-[#0B356D] text-white font-bold flex items-center justify-center text-sm mb-3">
                 2
+              
               </div>
               <h4 className="font-serif font-bold text-base text-[#0B356D]">Structured Batches</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Disciplined morning, evening and weekend batches aligned strictly with official syllabi.
               </p>
-            </div>
+            
 
+            </div>
             <div data-aos="zoom-in" data-aos-delay="200" className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition">
               <div className="w-9 h-9 rounded-xl bg-[#0B356D] text-white font-bold flex items-center justify-center text-sm mb-3">
                 3
+              
               </div>
               <h4 className="font-serif font-bold text-base text-[#0B356D]">Test Series &amp; Practice</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Weekly mock tests in actual examination halls with OMR evaluation &amp; rank analysis.
               </p>
-            </div>
+            
 
+            </div>
             <div data-aos="zoom-in" data-aos-delay="250" className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition">
               <div className="w-9 h-9 rounded-xl bg-[#0B356D] text-white font-bold flex items-center justify-center text-sm mb-3">
                 4
+              
               </div>
               <h4 className="font-serif font-bold text-base text-[#0B356D]">Personal Guidance</h4>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Dedicated 1-on-1 counseling, weak-area diagnosis and physical test training.
               </p>
+            
+          
+        
             </div>
           </div>
         </div>
@@ -704,8 +764,9 @@ export default function App() {
             <p className="text-slate-600 text-sm sm:text-base mt-2">
               Every course is taught by dedicated faculty across Chittoor, Tirupati, and Palamaner.
             </p>
-          </div>
+          
 
+          </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {COURSES_DATA.map((course, idx) => (
               <div
@@ -722,8 +783,9 @@ export default function App() {
                     <span className="text-[9px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
                       {course.seats}
                     </span>
-                  </div>
+                  
 
+                  </div>
                   <h3 className="font-serif text-base sm:text-xl font-bold text-[#0B356D] group-hover:text-amber-600 transition-colors">
                     {course.title}
                   </h3>
@@ -735,9 +797,11 @@ export default function App() {
                   <div className="mt-3 pt-2 border-t border-slate-100 text-[10px] sm:text-xs text-slate-500 font-medium">
                     <Clock className="w-3 h-3 inline mr-1 text-slate-400" />
                     <span>{course.timing}</span>
+                  
+                
+
                   </div>
                 </div>
-
                 <div className="mt-4 pt-2">
                   <button
                     onClick={() => handleEnrollClick(course.title)}
@@ -746,9 +810,13 @@ export default function App() {
                     <span>Enroll Now</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
+                
+              
                 </div>
               </div>
             ))}
+          
+        
           </div>
         </div>
       </section>
@@ -768,8 +836,9 @@ export default function App() {
             <p className="text-slate-600 text-sm sm:text-base mt-2">
               Model tests, previous question bit banks, and verified formula book sets prepared by our faculty.
             </p>
-          </div>
+          
 
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* Card 1: Model Papers */}
             <div
@@ -779,6 +848,7 @@ export default function App() {
               <div>
                 <div className="w-12 h-12 rounded-xl bg-white/10 text-[#FBBF24] flex items-center justify-center mb-4">
                   <FileText className="w-6 h-6" />
+                
                 </div>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
                   Model Papers &amp; Practice Tests
@@ -790,22 +860,27 @@ export default function App() {
                   <span className="bg-white/10 px-2.5 py-1 rounded">✓ AP DSC Mock Series</span>
                   <span className="bg-white/10 px-2.5 py-1 rounded">✓ TET Grand Tests</span>
                   <span className="bg-white/10 px-2.5 py-1 rounded">✓ Police SI Bit Bank</span>
-                </div>
-              </div>
+                
+              
 
               {/* Browse Button Removed -> Replaced with user's requested statement */}
+                </div>
+              </div>
               <div className="mt-6 pt-4 border-t border-white/15">
                 <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#F59E0B] text-[#072247] font-extrabold text-xs sm:text-sm shadow-md">
                   <CheckCircle2 className="w-4 h-4 text-[#072247] flex-shrink-0" />
                   <span>You will find all these in Kutty Study Circle</span>
+                
                 </div>
                 <p className="text-[11px] text-slate-300 mt-2 font-medium">
                   Provided directly to every student upon enrolment at our Chittoor, Tirupati, and Palamaner branches.
                 </p>
-              </div>
-            </div>
+              
+            
 
             {/* Card 2: Study Material */}
+              </div>
+            </div>
             <div
               data-aos="fade-left"
               className="bg-[#FFF3D6] text-slate-900 rounded-2xl p-6 sm:p-8 border border-amber-200/90 shadow-xl flex flex-col justify-between"
@@ -813,6 +888,7 @@ export default function App() {
               <div>
                 <div className="w-12 h-12 rounded-xl bg-amber-200 text-[#0B356D] flex items-center justify-center mb-4">
                   <BookOpen className="w-6 h-6" />
+                
                 </div>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#0B356D]">
                   Study Material &amp; Bit Bank
@@ -823,18 +899,25 @@ export default function App() {
                 <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-semibold text-[#0B356D]">
                   <span className="bg-white/80 px-2.5 py-1 rounded border border-amber-200">✓ RK Master Geometry Module</span>
                   <span className="bg-white/80 px-2.5 py-1 rounded border border-amber-200">✓ DSC Pedagogy Book</span>
-                </div>
-              </div>
+                
+              
 
               {/* Browse Button Removed -> Replaced with user's requested statement */}
+                </div>
+              </div>
               <div className="mt-6 pt-4 border-t border-amber-200/70">
                 <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#0B356D] text-[#FBBF24] font-extrabold text-xs sm:text-sm shadow-md">
                   <CheckCircle2 className="w-4 h-4 text-[#FBBF24] flex-shrink-0" />
                   <span>You will find all these in Kutty Study Circle</span>
+                
                 </div>
                 <p className="text-[11px] text-slate-600 mt-2 font-medium">
                   Complete bilingual printed sets and revision bit banks provided directly at the academy centers.
                 </p>
+              
+            
+          
+        
               </div>
             </div>
           </div>
@@ -857,9 +940,10 @@ export default function App() {
             <p className="text-slate-600 text-sm sm:text-base mt-2">
               Review current classroom sessions or reserve your seat for new DSC batches starting in the next 15 days.
             </p>
-          </div>
+          
 
           {/* Tab Selector */}
+          </div>
           <div className="flex justify-center mb-8" data-aos="fade-up">
             <div className="bg-slate-100 p-1.5 rounded-2xl flex gap-1 w-full max-w-lg shadow-inner">
               <button
@@ -882,10 +966,12 @@ export default function App() {
               >
                 Currently Running Batches
               </button>
-            </div>
-          </div>
+            
+          
 
           {/* Batches Cards Grid */}
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {activeBatchTab === "running" ? (
               // CURRENT RUNNING BATCHES (JOIN BUTTON REMOVED AS REQUESTED)
@@ -904,8 +990,9 @@ export default function App() {
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         {batch.status}
                       </span>
-                    </div>
+                    
 
+                    </div>
                     <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0B356D]">
                       {batch.title}
                     </h3>
@@ -916,34 +1003,48 @@ export default function App() {
 
                     <div className="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-center">
                       <div className="bg-slate-50 p-2 rounded-lg">
-                        <div className="text-[9px] uppercase font-bold text-slate-400">Timing</div>
-                        <div className="text-xs font-bold text-slate-800 truncate">{batch.timing}</div>
+                        <div className="text-[9px] uppercase font-bold text-slate-400">Timing
+                        </div>
+                        <div className="text-xs font-bold text-slate-800 truncate">{batch.timing}
+                      
+                        </div>
                       </div>
                       <div className="bg-slate-50 p-2 rounded-lg">
-                        <div className="text-[9px] uppercase font-bold text-slate-400">Mode</div>
-                        <div className="text-xs font-bold text-slate-800 truncate">{batch.mode}</div>
+                        <div className="text-[9px] uppercase font-bold text-slate-400">Mode
+                        </div>
+                        <div className="text-xs font-bold text-slate-800 truncate">{batch.mode}
+                      
+                        </div>
                       </div>
                       <div className="bg-slate-50 p-2 rounded-lg">
-                        <div className="text-[9px] uppercase font-bold text-slate-400">Center</div>
-                        <div className="text-xs font-bold text-slate-800 truncate">{batch.location}</div>
+                        <div className="text-[9px] uppercase font-bold text-slate-400">Center
+                        </div>
+                        <div className="text-xs font-bold text-slate-800 truncate">{batch.location}
+                      
+                    
+
+                        </div>
                       </div>
                     </div>
-
                     <div className="mt-4">
                       <div className="flex justify-between text-[11px] text-slate-500 font-medium mb-1">
                         <span>Syllabus progression</span>
                         <span>Week {batch.progressWeek} of {batch.totalWeeks}</span>
+                      
                       </div>
                       <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                         <div
                           className="bg-emerald-500 h-full rounded-full"
                           style={{ width: `${(batch.progressWeek / batch.totalWeeks) * 100}%` }}
                         />
+                      
+                    
+                  
+
+                  {/* NO JOIN BUTTON AS INSTRUCTED - Simple Status Note instead */}
                       </div>
                     </div>
                   </div>
-
-                  {/* NO JOIN BUTTON AS INSTRUCTED - Simple Status Note instead */}
                   <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
                     <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -977,8 +1078,9 @@ export default function App() {
                       <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-300">
                         ⚡ {batch.status}
                       </span>
-                    </div>
+                    
 
+                    </div>
                     <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0B356D]">
                       {batch.title}
                     </h3>
@@ -989,16 +1091,24 @@ export default function App() {
 
                     <div className="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 text-center">
                       <div className="bg-amber-50/70 p-2 rounded-lg">
-                        <div className="text-[9px] uppercase font-bold text-slate-500">Schedule</div>
-                        <div className="text-xs font-bold text-[#0B356D]">{batch.timing}</div>
+                        <div className="text-[9px] uppercase font-bold text-slate-500">Schedule
+                        </div>
+                        <div className="text-xs font-bold text-[#0B356D]">{batch.timing}
+                      
+                        </div>
                       </div>
                       <div className="bg-amber-50/70 p-2 rounded-lg">
-                        <div className="text-[9px] uppercase font-bold text-slate-500">Seat Status</div>
-                        <div className="text-xs font-bold text-amber-800">{batch.seats}</div>
+                        <div className="text-[9px] uppercase font-bold text-slate-500">Seat Status
+                        </div>
+                        <div className="text-xs font-bold text-amber-800">{batch.seats}
+                      
+                    
+                  
+
+                        </div>
                       </div>
                     </div>
                   </div>
-
                   <div className="mt-5 pt-3 flex gap-2">
                     <button
                       onClick={() => handleEnrollClick(batch.courseSelection)}
@@ -1019,6 +1129,8 @@ export default function App() {
                 </div>
               ))
             )}
+          
+        
           </div>
         </div>
       </section>
@@ -1038,6 +1150,7 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/30 text-[#FBBF24] text-xs font-bold tracking-widest uppercase mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
               <span>Campus Life &amp; Milestones</span>
+            
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white">
               Experience life at <span className="text-[#FBBF24]">Kutty Study Circle</span>
@@ -1045,9 +1158,10 @@ export default function App() {
             <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
               Step inside our smart classrooms, state-level auditoriums, and celebratory ranker felicitations across Chittoor, Tirupati, and Palamaner.
             </p>
-          </div>
+          
 
           {/* Category Filter Chips */}
+          </div>
           <div className="flex items-center justify-center gap-2 mb-8 overflow-x-auto pb-2 scrollbar-none" data-aos="fade-up">
             <button
               onClick={() => handleCategoryChange("all")}
@@ -1089,9 +1203,10 @@ export default function App() {
             >
               Practice Halls &amp; Library (2)
             </button>
-          </div>
+          
 
           {/* MAIN CINEMATIC SHOWCASE (Touch-Swipeable on Mobile + GSAP Animated) */}
+          </div>
           <div
             className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-black/60 border border-amber-400/20 shadow-[0_25px_70px_rgba(0,0,0,0.6)] group"
             onMouseEnter={() => setIsGalleryAutoPlay(false)}
@@ -1117,9 +1232,10 @@ export default function App() {
                 <span>0{activeGallerySlide + 1}</span>
                 <span className="text-white/40">/</span>
                 <span className="text-slate-400">0{filteredPhotos.length}</span>
-              </div>
+              
 
               {/* Autoplay & Zoom Controls */}
+              </div>
               <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 flex items-center gap-2">
                 <button
                   onClick={() => setIsGalleryAutoPlay(!isGalleryAutoPlay)}
@@ -1137,9 +1253,10 @@ export default function App() {
                 >
                   <Maximize2 className="w-4 h-4" />
                 </button>
-              </div>
+              
 
               {/* Caption Content */}
+              </div>
               <div
                 ref={slideContentRef}
                 className="absolute bottom-6 left-4 right-4 sm:bottom-10 sm:left-10 sm:right-10 z-20 max-w-2xl text-left"
@@ -1147,8 +1264,9 @@ export default function App() {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F59E0B] text-[#072247] text-[11px] font-extrabold uppercase tracking-wide mb-2.5 shadow">
                   <MapPin className="w-3 h-3" />
                   <span>{currentPhoto.tag} · {currentPhoto.location}</span>
-                </div>
+                
 
+                </div>
                 <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight drop-shadow-md">
                   {currentPhoto.title}
                 </h3>
@@ -1165,10 +1283,12 @@ export default function App() {
                     <Eye className="w-3.5 h-3.5" />
                     <span>View High-Res Photo</span>
                   </button>
-                </div>
-              </div>
+                
+              
 
               {/* Arrows */}
+                </div>
+              </div>
               <button
                 onClick={() => setActiveGallerySlide((prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length)}
                 className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-[#F59E0B] hover:text-[#072247] text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 shadow-xl"
@@ -1191,10 +1311,12 @@ export default function App() {
                   className="h-full bg-gradient-to-r from-[#F59E0B] to-[#FBBF24] animate-gallery-progress"
                   style={{ animationPlayState: isGalleryAutoPlay ? "running" : "paused" }}
                 />
-              </div>
-            </div>
+              
+            
 
             {/* Dots */}
+              </div>
+            </div>
             <div className="py-3 px-4 bg-black/80 flex items-center justify-center gap-2 border-t border-white/10">
               {filteredPhotos.map((_, idx) => (
                 <button
@@ -1208,10 +1330,12 @@ export default function App() {
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
-            </div>
-          </div>
+            
+          
 
           {/* Filmstrip Thumbnails */}
+            </div>
+          </div>
           <div className="mt-4 flex gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-none" data-aos="fade-up">
             {filteredPhotos.map((photo, idx) => (
               <button
@@ -1230,6 +1354,8 @@ export default function App() {
                 )}
               </button>
             ))}
+          
+        
           </div>
         </div>
       </section>
@@ -1249,8 +1375,9 @@ export default function App() {
             <p className="text-slate-600 text-sm sm:text-base mt-2">
               Over 2,000 government selections secured since 2012. A few of the faces behind that proud number.
             </p>
-          </div>
+          
 
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {ACHIEVERS_DATA.map((achiever, idx) => (
               <div
@@ -1264,25 +1391,32 @@ export default function App() {
                     <span className="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
                       {achiever.rank}
                     </span>
+                  
                   </div>
                   <h4 className="font-serif text-base sm:text-lg font-bold text-[#0B356D]">
                     {achiever.name}
                   </h4>
                   <div className="text-xs font-bold text-slate-500 mt-0.5">
                     {achiever.post}
+                  
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 italic mt-3 leading-relaxed">
                     &ldquo;{achiever.feedback}&rdquo;
                   </p>
+                
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
                   <span className="flex items-center gap-1 text-emerald-600 font-bold">
                     <ShieldCheck className="w-3.5 h-3.5" /> Verified Selection
                   </span>
                   <span>KSC Alumnus</span>
+                
+              
                 </div>
               </div>
             ))}
+          
+        
           </div>
         </div>
       </section>
@@ -1294,8 +1428,9 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="w-14 h-14 rounded-2xl bg-[#F59E0B] text-[#072247] flex items-center justify-center mx-auto mb-4 shadow-xl">
             <GraduationCap className="w-8 h-8" />
-          </div>
+          
 
+          </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Ready to start your journey?
           </h2>
@@ -1323,8 +1458,9 @@ export default function App() {
               >
                 Enroll Now
               </button>
-            </div>
+            
 
+            </div>
             <div className="mt-4 text-center">
               <button
                 onClick={() => scrollToSection("branches")}
@@ -1333,16 +1469,23 @@ export default function App() {
                 <MapPin className="w-3.5 h-3.5 text-[#F59E0B]" />
                 <span>Find Our Branches (Tirupati · Chittoor · Palamaner)</span> &rarr;
               </button>
+            
+          
+        
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================================
-          SECTION 9: OUR BRANCHES (Chittoor, Tirupati, Palamaner + Map)
+      
+      
+     {/* =========================================================================
+          SECTION 9: OUR BRANCHES (Tirupati Head Office, Chittoor, Palamaner + Map)
       ========================================================================= */}
       <section id="branches" className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0B356D] bg-blue-100 px-3.5 py-1.5 rounded-full">
               Main Branches
@@ -1358,14 +1501,18 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Branch Cards */}
             <div className="lg:col-span-5 space-y-4 flex flex-col justify-between">
-              {/* Tirupati Branch */}
-              <div data-aos="fade-up" className="bg-[#F8FAFC] rounded-2xl p-5 border border-slate-200 shadow-xs hover:border-[#0B356D] transition">
-                <div className="flex items-center justify-between">
-                  <h4 className="font-serif text-lg font-bold text-[#0B356D]">Tirupati · Main Center</h4>
-                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Active</span>
-                </div>
-                <p className="text-xs text-slate-600 mt-1">
-                  AIR Bypass Road, New Balaji Colony, MR Palle Circle, Tirupati 517502
+
+              {/* Tirupati · Head Office */}
+              <div
+                data-aos="fade-up"
+                className="bg-[#FFF9EE] rounded-2xl p-5 border-2 border-amber-300 shadow-sm relative"
+              >
+                <span className="absolute -top-2.5 right-4 bg-[#F59E0B] text-[#072247] text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full">
+                  Head Office
+                </span>
+                <h4 className="font-serif text-lg font-bold text-[#0B356D]">Tirupati · Head Office</h4>
+                <p className="text-xs text-slate-700 mt-1">
+                  Moresuper Market upstairs, Junction, MR Palli Road, New Balaji Colony, Avilali, Tirupati 517502
                 </p>
                 <div className="mt-3 flex items-center gap-3">
                   <a
@@ -1376,7 +1523,7 @@ export default function App() {
                   </a>
                   <span className="text-slate-300">·</span>
                   <a
-                    href="https://maps.google.com/?q=Plot+No+1,+Door+No+23-8-160,+AIR+Bypass+Road,+New+Balaji+Colony,+MR+Palle+Circle,+Tirupati,+Andhra+Pradesh+517502"
+                    href="https://www.google.com/maps/search/?api=1&query=Moresuper+Market+upstairs%2C+MR+Palli+Road%2C+New+Balaji+Colony%2C+Tirupati%2C+Andhra+Pradesh+517502"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1"
@@ -1386,14 +1533,20 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Chittoor Head Office */}
-              <div data-aos="fade-up" data-aos-delay="100" className="bg-[#FFF9EE] rounded-2xl p-5 border-2 border-amber-300 shadow-sm relative">
-                <span className="absolute -top-2.5 right-4 bg-[#F59E0B] text-[#072247] text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full">
-                  Head Office
-                </span>
-                <h4 className="font-serif text-lg font-bold text-[#0B356D]">Chittoor · Head Office</h4>
-                <p className="text-xs text-slate-700 mt-1">
-                  26-111, Mittoor, Chittoor District, Andhra Pradesh 517001
+              {/* Chittoor Branch */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="bg-[#F8FAFC] rounded-2xl p-5 border border-slate-200 shadow-xs hover:border-[#0B356D] transition"
+              >
+                <div className="flex items-center justify-between">
+                  <h4 className="font-serif text-lg font-bold text-[#0B356D]">Chittoor · Branch</h4>
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+                    Active
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 mt-1">
+                  20-149, Jail Khana Street, Mittoor, Chittoor, Andhra Pradesh 517001
                 </p>
                 <div className="mt-3 flex items-center gap-3">
                   <a
@@ -1404,7 +1557,7 @@ export default function App() {
                   </a>
                   <span className="text-slate-300">·</span>
                   <a
-                    href="https://maps.google.com/?q=26-111,+Mittoor,+Chittoor,+Andhra+Pradesh+517001,+India"
+                    href="https://www.google.com/maps/search/?api=1&query=20-149%2C+Jail+Khana+Street%2C+Mittoor%2C+Chittoor%2C+Andhra+Pradesh+517001"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1"
@@ -1415,13 +1568,19 @@ export default function App() {
               </div>
 
               {/* Palamaner Branch */}
-              <div data-aos="fade-up" data-aos-delay="200" className="bg-[#F8FAFC] rounded-2xl p-5 border border-slate-200 shadow-xs hover:border-[#0B356D] transition">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="200"
+                className="bg-[#F8FAFC] rounded-2xl p-5 border border-slate-200 shadow-xs hover:border-[#0B356D] transition"
+              >
                 <div className="flex items-center justify-between">
                   <h4 className="font-serif text-lg font-bold text-[#0B356D]">Palamaner · Branch</h4>
-                  <span className="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Admissions Open</span>
+                  <span className="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">
+                    Admissions Open
+                  </span>
                 </div>
                 <p className="text-xs text-slate-600 mt-1">
-                  Town Center, Near Bus Stand, Chittoor District, AP
+                  Near Gundubhavi, Palamaner, Chittoor District, Andhra Pradesh
                 </p>
                 <div className="mt-3 flex items-center gap-3">
                   <a
@@ -1464,17 +1623,56 @@ export default function App() {
             </div>
 
             {/* Embedded Live Google Map */}
-            <div data-aos="fade-left" className="lg:col-span-7 rounded-2xl overflow-hidden shadow-lg border border-slate-200 min-h-[350px]">
+            <div
+              data-aos="fade-left"
+              className="lg:col-span-7 rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white min-h-[350px]"
+            >
+              <div className="p-4 sm:p-5 border-b border-slate-200">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#0B356D]">Find Your Nearest Branch</h3>
+                <p className="text-xs text-slate-500 mt-1">Select a branch to view its location on the map.</p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {Object.entries(mapData).map(([key, branch]) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => setSelectedMapBranch(key)}
+                      aria-pressed={selectedMapBranch === key}
+                      className={`px-3 py-2 rounded-lg text-xs sm:text-sm font-bold border transition ${
+                        selectedMapBranch === key
+                          ? "bg-[#0B356D] text-white border-[#0B356D]"
+                          : "bg-white text-[#0B356D] border-slate-300 hover:border-[#0B356D]"
+                      }`}
+                    >
+                      {branch.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
               <iframe
-                title="Kutty Study Circle Map Location"
-                src="https://www.google.com/maps?q=26-111,+Mittoor,+Chittoor,+Andhra+Pradesh+517001,+India&output=embed"
+                key={selectedMapBranch}
+                title={`${mapData[selectedMapBranch].name} - Kutty Study Circle Map`}
+                src={mapData[selectedMapBranch].embedUrl}
                 width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "360px" }}
+                height="360"
+                style={{ border: 0, minHeight: "360px", display: "block" }}
                 allowFullScreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
+              <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <p className="text-sm font-bold text-[#0B356D]">{mapData[selectedMapBranch].name}</p>
+                  <p className="text-xs text-slate-600 mt-1">{mapData[selectedMapBranch].address}</p>
+                </div>
+                <a
+                  href={mapData[selectedMapBranch].directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-[#D97706] text-[#072247] text-xs font-extrabold transition whitespace-nowrap"
+                >
+                  <Compass className="w-4 h-4" /> Get Directions
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1494,8 +1692,9 @@ export default function App() {
                   className="h-9 sm:h-11 w-auto object-contain"
                   onError={(e) => { e.currentTarget.src = FALLBACK_LOGO; }}
                 />
-              </div>
+              
 
+              </div>
               <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
                 For 14 years, Kutty Study Circle has guided students toward careers in teaching and government services through expert mentors, structured batches, and honest, result-focused preparation.
               </p>
@@ -1537,9 +1736,11 @@ export default function App() {
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                 </a>
+              
+            
+
               </div>
             </div>
-
             <div>
               <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3">
                 Quick Links
@@ -1552,8 +1753,9 @@ export default function App() {
                 <li><button onClick={() => scrollToSection("gallery")} className="hover:text-[#FBBF24] transition">Campus Gallery</button></li>
                 <li><button onClick={() => scrollToSection("branches")} className="hover:text-[#FBBF24] transition">Our Branches</button></li>
               </ul>
-            </div>
+            
 
+            </div>
             <div>
               <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3">
                 Programs
@@ -1565,8 +1767,9 @@ export default function App() {
                 <li><button onClick={() => handleEnrollClick("AP Police SI / Constable")} className="hover:text-[#FBBF24] transition">AP Police SI Programs</button></li>
                 <li><button onClick={() => handleEnrollClick("Banking & SSC")} className="hover:text-[#FBBF24] transition">Banking, SSC &amp; Railway</button></li>
               </ul>
-            </div>
+            
 
+            </div>
             <div>
               <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3">
                 Contact Info
@@ -1589,60 +1792,60 @@ export default function App() {
                   <span>Mon-Sat: 8:00 AM - 8:00 PM</span>
                 </li>
               </ul>
+            
+          
+
             </div>
           </div>
-
           <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
             <p>
               © 2026 Kutty Study Circle · All rights reserved. 14 Years of Shaping Futures.
             </p>
+          
+        
           </div>
         </div>
       </footer>
+{/* New Landing Sections */}
+{/* Landing sections moved to HomePage */}
 
-      {/* =========================================================================
-          STICKY MOBILE ACTION BAR
-      ========================================================================= */}
-      {showFloatingBar && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2.5 px-3 sm:hidden shadow-2xl flex items-center gap-2 animate-fadeIn">
-          <a
-            href="tel:9491844963"
-            className="flex-1 py-2.5 px-2 bg-slate-100 hover:bg-slate-200 text-[#0B356D] font-bold text-xs rounded-xl flex items-center justify-center gap-1.5"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#0B356D]" />
-            <span>Call 94918 44963</span>
-          </a>
 
-          <button
-            onClick={() => scrollToSection("free-demo-form")}
-            className="flex-1 py-2.5 px-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#072247] font-extrabold text-xs rounded-xl shadow-sm text-center"
-          >
-            Book Free Demo
-          </button>
 
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl flex items-center justify-center shadow-sm flex-shrink-0"
-            title="Chat on WhatsApp"
-          >
-            <WhatsAppIcon className="w-5 h-5" />
-          </a>
-        </div>
-      )}
 
-      {/* Floating WhatsApp Action Pill for Desktop */}
-      <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full shadow-2xl transition transform hover:scale-105"
-        title="WhatsApp Direct 9491844963"
-      >
-        <WhatsAppIcon className="w-5 h-5" />
-        <span className="text-xs font-bold">WhatsApp: 94918 44963</span>
-      </a>
+
+     {/* =========================================================================
+    STICKY MOBILE ACTION BAR
+========================================================================= */}
+{showFloatingBar && (
+  <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2.5 px-3 sm:hidden shadow-2xl flex items-center gap-2 animate-fadeIn">
+    <a
+      href="tel:9491844963"
+      className="flex-1 py-2.5 px-2 bg-slate-100 hover:bg-slate-200 text-[#0B356D] font-bold text-xs rounded-xl flex items-center justify-center gap-1.5"
+    >
+      <Phone className="w-3.5 h-3.5 text-[#0B356D]" />
+      <span>Call 94918 44963</span>
+    </a>
+
+    <button
+      onClick={() => scrollToSection("free-demo-form")}
+      className="flex-1 py-2.5 px-2 bg-[#F59E0B] hover:bg-[#D97706] text-[#072247] font-extrabold text-xs rounded-xl shadow-sm text-center"
+    >
+      Book Free Demo
+    </button>
+  </div>
+)}
+
+{/* Floating WhatsApp Action Pill (Desktop only) */}
+<a
+  href={WHATSAPP_LINK}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-40 hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full shadow-2xl transition transform hover:scale-105"
+  title="WhatsApp Direct 9491844963"
+>
+  <WhatsAppIcon className="w-5 h-5" />
+  <span className="text-xs font-bold">WhatsApp Us</span>
+</a>
 
       {/* =========================================================================
           LIGHTBOX MODAL FOR GALLERY
@@ -1664,9 +1867,12 @@ export default function App() {
             >
               <X className="w-5 h-5" />
             </button>
+          
+        
           </div>
         </div>
       )}
+    
     </div>
   );
 }

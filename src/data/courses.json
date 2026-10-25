@@ -1,56 +1,164 @@
 [
   {
+    "id": "tet-dsc",
+    "tag": "TET+DSC",
+    "title": "TET + DSC Combined Course",
+    "badge": "Integrated Coaching",
+    "summary": "Joint preparation for TET and DSC exams covering pedagogy and competitive exam strategies.",
+    "seats": "Open",
+    "timing": "9:00 AM - 2:00 PM"
+  },
+  {
     "id": "dsc-sgt",
     "tag": "DSC",
-    "title": "AP DSC 2026 (SGT Batch)",
-    "badge": "Next 15 Days Batch",
-    "summary": "Dedicated intensive coaching for AP DSC 2026 SGT. Special focus on Maths, Methodology, and Psychology.",
-    "seats": "Batch Filling Fast",
-    "timing": "Daily 9:00 AM - 1:00 PM"
+    "title": "DSC – SGT",
+    "badge": "SGT Focus",
+    "summary": "Specialized training for DSC SGT candidates.",
+    "seats": "Available",
+    "timing": "9:00 AM - 1:00 PM"
+  },
+  {
+    "id": "tet-sgt",
+    "tag": "TET",
+    "title": "Tet – SGT",
+    "badge": "SGT Batch",
+    "summary": "TET preparation for SGT posts.",
+    "seats": "Limited",
+    "timing": "9:30 AM - 1:30 PM"
+  },
+  {
+    "id": "tet-2a",
+    "tag": "TET",
+    "title": "TET‑2A (Math/Bio/Social)",
+    "badge": "Math/Bio/Social",
+    "summary": "Comprehensive TET 2A curriculum covering maths, biology and social studies.",
+    "seats": "Open",
+    "timing": "8:00 AM - 12:00 PM"
   },
   {
     "id": "dsc-sa",
     "tag": "DSC",
-    "title": "AP DSC 2026 (School Assistant)",
-    "badge": "Maths · Science · Social",
-    "summary": "Complete subject papers, bilingual methodology practice, and daily exam hall simulations.",
-    "seats": "Seats Active",
+    "title": "DSC (SA)",
+    "badge": "School Assistant",
+    "summary": "DSC coaching for School Assistant candidates.",
+    "seats": "Open",
     "timing": "Morning & Evening Slots"
-  },
-  {
-    "id": "tet",
-    "tag": "TET",
-    "title": "Teacher Eligibility Test (TET)",
-    "badge": "Paper 1 & Paper 2",
-    "summary": "Complete syllabus coverage for Paper 1 (SGT) and Paper 2 (School Assistant) with pedagogy masterclasses.",
-    "seats": "Few Seats Left",
-    "timing": "Daily 9:00 AM - 1:00 PM"
-  },
-  {
-    "id": "si",
-    "tag": "SI",
-    "title": "SI Programs",
-    "badge": "Written + Ground",
-    "summary": "Comprehensive coaching for AP Police SI prelims, mains, arithmetic shortcuts plus outdoor physical training.",
-    "seats": "Batch Active",
-    "timing": "5:30 AM Ground · 9:30 AM Class"
   },
   {
     "id": "constable",
     "tag": "CONSTABLE",
-    "title": "Constable Programs",
+    "title": "Constable",
     "badge": "Intensive Drills",
-    "summary": "Conceptual teaching from basics, daily model tests, and specialized physical event coaching.",
-    "seats": "Open for Inter / Degree",
+    "summary": "Preparing candidates for Constable examinations.",
+    "seats": "Open",
     "timing": "Daily Morning Batches"
   },
   {
-    "id": "groups",
-    "tag": "GROUPS",
-    "title": "Banking, SSC & Railway",
-    "badge": "Central & State",
-    "summary": "Speed math tricks, analytical reasoning, and English grammar modules for RRB NTPC, Group D, and Bank exams.",
-    "seats": "New Batch Monday",
-    "timing": "Flexible Timings"
+    "id": "sub-inspector",
+    "tag": "SI",
+    "title": "Sub Inspector (SI)",
+    "badge": "Written + Ground",
+    "summary": "Comprehensive SI prep with written and physical training.",
+    "seats": "Open",
+    "timing": "5:30 AM Ground · 9:30 AM Class"
+  },
+  {
+    "id": "rrb",
+    "tag": "RRB",
+    "title": "RRB (Group‑D / NTPC)",
+    "badge": "Group‑D & NTPC",
+    "summary": "Speed math, reasoning and general awareness for RRB.",
+    "seats": "Open",
+    "timing": "Morning 6:00 AM – 8:00 AM"
+  },
+  {
+    "id": "ssc-gd",
+    "tag": "SSC",
+    "title": "SSC – GD",
+    "badge": "General Duty",
+    "summary": "SSC GD exam preparation covering all sections.",
+    "seats": "Open",
+    "timing": "Evening 6:00 PM – 8:00 PM"
+  },
+  {
+    "id": "ssc-cgl",
+    "tag": "SSC",
+    "title": "SSC – CGL",
+    "badge": "Combined Graduate Level",
+    "summary": "SSC CGL comprehensive coaching.",
+    "seats": "Open",
+    "timing": "Evening 6:00 PM – 8:00 PM"
+  },
+  {
+    "id": "sainik",
+    "tag": "SAINIK",
+    "title": "SAINIK",
+    "badge": "Defence Services",
+    "summary": "Coaching for SAINIK entrance exams.",
+    "seats": "Open",
+    "timing": "Flexible"
+  },
+  {
+    "id": "rms",
+    "tag": "RMS",
+    "title": "RMS",
+    "badge": "Rural Management",
+    "summary": "Preparation for RMS exams.",
+    "seats": "Open",
+    "timing": "Flexible"
+  },
+  {
+    "id": "jee-mains",
+    "tag": "JEE",
+    "title": "JEE Mains",
+    "badge": "Engineering Entrance",
+    "summary": "JEE Mains full syllabus coaching.",
+    "seats": "Open",
+    "timing": "Morning 6:00 AM – 9:00 AM"
+  },
+  {
+    "id": "ap-eamcet",
+    "tag": "EAMCET",
+    "title": "AP EAMCET",
+    "badge": "Engineering & Medical",
+    "summary": "AP EAMCET preparation for engineering and medical aspirants.",
+    "seats": "Open",
+    "timing": "Morning 6:00 AM – 9:00 AM"
+  },
+  {
+    "id": "neet",
+    "tag": "NEET",
+    "title": "NEET",
+    "badge": "Medical Entrance",
+    "summary": "NEET full syllabus coaching.",
+    "seats": "Open",
+    "timing": "Morning 6:00 AM – 9:00 AM"
+  },
+  {
+    "id": "rimc",
+    "tag": "RIMC",
+    "title": "RIMC",
+    "badge": "Rural Institute",
+    "summary": "RIMC program details.",
+    "seats": "Open",
+    "timing": "Flexible"
+  },
+  {
+    "id": "banking",
+    "tag": "Banking",
+    "title": "Banking (IBPS)",
+    "badge": "Banking Exams",
+    "summary": "IBPS banking exam preparation.",
+    "seats": "Open",
+    "timing": "Morning 6:00 AM – 8:00 AM / Evening 6:00 PM – 8:00 PM"
+  },
+  {
+    "id": "group-1-2",
+    "tag": "Group",
+    "title": "Group 1 & 2",
+    "badge": "Group 1 & 2 Exams",
+    "summary": "Coaching for Group 1 & 2 competitive exams.",
+    "seats": "Open",
+    "timing": "Flexible"
   }
 ]
